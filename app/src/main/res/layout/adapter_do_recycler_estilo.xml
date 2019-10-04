@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/carview1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:cardBackgroundColor="@color/cardview_light_background"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="8dp">
+
+        <ImageView
+            android:id="@+id/tFoto"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="200dp"
+            app:srcCompat="@android:drawable/ic_menu_camera" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="3"
+            android:padding="4dp">
+
+
+            <!-- Barra de progresso enquanto carrega a foto -->
+            <ProgressBar
+                android:id="@+id/progress"
+                style="@android:style/Widget.ProgressBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|center_vertical"
+                android:layout_marginRight="6dp"
+                android:gravity="center|center_vertical"
+                android:visibility="invisible" />
+
+            <LinearLayout
+                android:layout_width="270dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="-20dp"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/tNome"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="7"
+                    android:text="Nome"
+                    android:textColor="#000000" />
+
+
+
+
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+    <!-- Nome carro -->
+
+</LinearLayout>

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "749798486914",
+    "firebase_url": "https://tcctiagopereira.firebaseio.com",
+    "project_id": "tcctiagopereira",
+    "storage_bucket": "tcctiagopereira.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:749798486914:android:7738fe742be9f442",
+        "android_client_info": {
+          "package_name": "com.example.login"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "749798486914-3315hrunq81lonk7dmej7j6ikefodvmo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.login",
+            "certificate_hash": "07613aa72708e15b300dfee4d674eb4a616d173d"
+          }
+        },
+        {
+          "client_id": "749798486914-eo10k0e6b3vd6r14b60firgtdi3q10ce.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPNjqXaDe4wN4AQZE95O-36iAavPQiKH4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "749798486914-eo10k0e6b3vd6r14b60firgtdi3q10ce.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
