@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -17,12 +18,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.login.Conexao;
 import com.example.login.Lista.Clientes.FragmentListClienteBarbeiro;
 import com.example.login.Login.Cadastro.Cadastro;
 import com.example.login.Modelo.ModeloCadastro;
+import com.example.login.Modelo.ModeloPerfil;
+import com.example.login.Modelo.ModeloPerfilEdit;
 import com.example.login.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -30,6 +36,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -43,6 +50,8 @@ import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
 import java.io.ByteArrayOutputStream;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -59,6 +68,7 @@ public class FragmentBarbeiroEdit extends Fragment implements View.OnClickListen
     private Uri mImageUri;
     private StorageReference mStorageRef;
     private DatabaseReference mDatabaseRef;
+    private EditText aliasnome;
     private StorageTask mUploadTask;
 
     private int IMAGEM_ID = -1;
@@ -89,12 +99,13 @@ public class FragmentBarbeiroEdit extends Fragment implements View.OnClickListen
         aliasSalvar = (CardView) view.findViewById(R.id.cardView);
         //aliasSalvar1 = (CardView) view.findViewById(R.id.cardView1);
 
+        aliasnome = (EditText) view.findViewById(R.id.aliasnome);
         foto1 = (Button) view.findViewById(R.id.button);
-        foto2 = (Button) view.findViewById(R.id.button2);
-        foto3 = (Button) view.findViewById(R.id.button3);
-        imagem1 = (ImageView) view.findViewById(R.id.imagem1);
-        imagem2 = (ImageView) view.findViewById(R.id.imagem2);
-        imagem3 = (ImageView) view.findViewById(R.id.imagem3);
+        //foto2 = (Button) view.findViewById(R.id.button2);
+        //foto3 = (Button) view.findViewById(R.id.button3);
+        imagem1 = (CircleImageView) view.findViewById(R.id.imagem1);
+        imagem2 = (CircleImageView) view.findViewById(R.id.imagem2);
+        imagem3 = (CircleImageView) view.findViewById(R.id.imagem3);
         mButtonChooseImage = (ImageView) view.findViewById(R.id.mButtonChooseImage);
 
         mStorageRef = FirebaseStorage.getInstance().getReference("uploads");
@@ -102,7 +113,7 @@ public class FragmentBarbeiroEdit extends Fragment implements View.OnClickListen
 
         auth = auth.getInstance();
 
-        foto1.setOnClickListener(new View.OnClickListener() {
+        imagem1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 IMAGEM_ID = 1;
@@ -110,7 +121,7 @@ public class FragmentBarbeiroEdit extends Fragment implements View.OnClickListen
             }
         });
 
-        foto2.setOnClickListener(new View.OnClickListener() {
+        imagem2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 IMAGEM_ID = 2;
@@ -118,7 +129,7 @@ public class FragmentBarbeiroEdit extends Fragment implements View.OnClickListen
             }
         });
 
-        foto3.setOnClickListener(new View.OnClickListener() {
+        imagem3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 IMAGEM_ID = 3;
@@ -140,24 +151,13 @@ public class FragmentBarbeiroEdit extends Fragment implements View.OnClickListen
             @Override
             public void onClick(View v) {
 
-                /*FragmentManager fm = getActivity().getSupportFragmentManager();
-                FragmentTransaction ft = fm.beginTransaction();
-                FragmentPerfilBarbeiro fragmentPerfilBarbeiro = new FragmentPerfilBarbeiro();
-                ft.replace(R.id.conteiner, fragmentPerfilBarbeiro);
-                ft.commit();*/
-
-                editarperfil();
+                String nome = aliasnome.getText().toString().trim();
+                editarperfil(nome);
 
 
             }
         });
 
-        mButtonChooseImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openFileChooser();
-            }
-        });
 
 
         mDatabaseRef.child(auth.getCurrentUser().getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
@@ -165,9 +165,17 @@ public class FragmentBarbeiroEdit extends Fragment implements View.OnClickListen
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 System.out.println(dataSnapshot.getValue().toString());
                 ModeloCadastro m = dataSnapshot.getValue(ModeloCadastro.class);
-                ModeloCadastro mm = dataSnapshot.getValue(ModeloCadastro.class);
+                //ModeloCadastro mm = dataSnapshot.getValue(ModeloCadastro.class);
                 System.out.println(m);
                // System.out.println(mm);
+
+                //pefik
+                Picasso.with(getContext()).load(m.getFotoperfil()).into(mButtonChooseImage);
+
+                Picasso.with(getContext()).load(m.getFoto1()).into(imagem1);
+                Picasso.with(getContext()).load(m.getFoto2()).into(imagem2);
+                Picasso.with(getContext()).load(m.getFoto3()).into(imagem3);
+
             }
 
             @Override
@@ -232,9 +240,28 @@ public class FragmentBarbeiroEdit extends Fragment implements View.OnClickListen
 
 
 
-    private void editarperfil() {
+    private void editarperfil(final String nome) {
 
 
+
+        mDatabaseRef.child(auth.getCurrentUser().getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+                                                                                              @Override
+                                                                                              public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                                                                                  ModeloCadastro m = dataSnapshot.getValue(ModeloCadastro.class);
+                                                                                                  //ModeloPerfilEdit p = dataSnapshot.getValue(ModeloPerfilEdit.class);
+                                                                                                  //FirebaseDatabase database = FirebaseDatabase.getInstance();
+                                                                                                  //DatabaseReference user = database.getReference("users").child(auth.getUid());
+
+                                                                                                  // ModeloCadastro mm = dataSnapshot.getValue(ModeloCadastro.class);
+
+                                                                                                  m.setNome(nome);
+                                                                                                  mDatabaseRef.child(auth.getCurrentUser().getUid()).setValue(m);
+                                                                                              }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
         //carega imagem
         if (mImageUri != null) {
@@ -266,7 +293,16 @@ public class FragmentBarbeiroEdit extends Fragment implements View.OnClickListen
                                         @Override
                                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                             ModeloCadastro m = dataSnapshot.getValue(ModeloCadastro.class);
-                                           // ModeloCadastro mm = dataSnapshot.getValue(ModeloCadastro.class);
+                                            //ModeloPerfilEdit p = dataSnapshot.getValue(ModeloPerfilEdit.class);
+                                            //FirebaseDatabase database = FirebaseDatabase.getInstance();
+                                            //DatabaseReference user = database.getReference("users").child(auth.getUid());
+
+                                            // ModeloCadastro mm = dataSnapshot.getValue(ModeloCadastro.class);
+
+                                           // m.setNome(nome);
+                                            //user.setValue(p);
+                                            //ModeloCadastro m = dataSnapshot.getValue(ModeloCadastro.class);
+                                            m.setNome(nome);
 
                                             switch (IMAGEM_ID) {
                                                 case 1:
@@ -278,9 +314,9 @@ public class FragmentBarbeiroEdit extends Fragment implements View.OnClickListen
                                                 case 3:
                                                    m.setFoto3(url);
                                                     break;
-                                                /*case 4:
-                                                    mm.setFotoperfil(url);
-                                                    break;*/
+                                                case 4:
+                                                    m.setFotoperfil(url);
+                                                    break;
 
                                                 default://se der merda
 
@@ -315,10 +351,16 @@ public class FragmentBarbeiroEdit extends Fragment implements View.OnClickListen
                         }
                     });
         } else {
-            //Toast.makeText(this, "No file selected", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "No file selected", Toast.LENGTH_SHORT).show();
         }
 
 
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        auth= Conexao.getFirebaseAuth();
     }
 
 

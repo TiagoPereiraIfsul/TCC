@@ -9,50 +9,53 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/aa">
+        android:background="@drawable/btauszik">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="350dp"
             android:orientation="vertical">
 
-            <ImageView
+            <EditText
+                android:id="@+id/aliasnome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/linearLayout"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="150dp"
+                android:layout_marginLeft="55dp"
+                android:hint="Nome barbeiro:"
+                android:textColor="#fff"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:orientation="vertical">
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/mButtonChooseImage"
                 android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_height="150dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="35dp"
                 android:layout_marginLeft="-90dp"
-                android:src="@drawable/ic_action_newperfil" />
+                android:layout_marginTop="35dp"
+                app:civ_border_color="#FF000000"
+                app:civ_border_width="2dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
-                android:text="Nome barbeiro:"
-                android:layout_above="@+id/linearLayout"
-                android:textColor="#fff"
-                android:textSize="15sp"
-                android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
-                android:text="Descrição:"
-                android:textColor="#fff"
-                android:textSize="15sp"
-                android:textStyle="bold" />
         </LinearLayout>
 
         <android.support.v7.widget.CardView
             android:layout_width="400dp"
             android:layout_height="200dp"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="215dp"
-            app:cardBackgroundColor="@android:color/darker_gray">
+            android:layout_marginTop="315dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -68,17 +71,19 @@
                     android:orientation="vertical">
 
 
-                    <Button
-                        android:id="@+id/button"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="ADD" />
-
-                    <ImageView
+                    <!--<ImageView
                         android:id="@+id/imagem1"
                         android:layout_width="75dp"
                         android:layout_height="100dp"
-                        app:srcCompat="@drawable/ic_menu_camera" />
+                        app:srcCompat="@drawable/ic_menu_camera" />-->
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/imagem1"
+                        android:layout_width="100dp"
+                        android:layout_height="150dp"
+                        android:layout_gravity="center_horizontal"
+                        app:civ_border_color="#FF000000"
+                        app:civ_border_width="2dp" />
 
 
                 </LinearLayout>
@@ -91,17 +96,19 @@
                     android:orientation="vertical">
 
 
-                    <Button
-                        android:id="@+id/button2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="ADD" />
-
-                    <ImageView
+                    <!--<ImageView
                         android:id="@+id/imagem2"
                         android:layout_width="75dp"
                         android:layout_height="100dp"
-                        app:srcCompat="@drawable/ic_menu_camera" />
+                        app:srcCompat="@drawable/ic_menu_camera" />-->
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/imagem2"
+                        android:layout_width="100dp"
+                        android:layout_height="150dp"
+                        android:layout_gravity="center_horizontal"
+                        app:civ_border_color="#FF000000"
+                        app:civ_border_width="2dp" />
 
 
                 </LinearLayout>
@@ -113,18 +120,20 @@
                     android:gravity="center"
                     android:orientation="vertical">
 
-                    <Button
-                        android:id="@+id/button3"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="ADD" />
 
-                    <ImageView
+                    <!--<ImageView
                         android:id="@+id/imagem3"
                         android:layout_width="75dp"
                         android:layout_height="100dp"
-                        app:srcCompat="@drawable/ic_menu_camera" />
+                        app:srcCompat="@drawable/ic_menu_camera" />-->
 
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/imagem3"
+                        android:layout_width="100dp"
+                        android:layout_height="150dp"
+                        android:layout_gravity="center_horizontal"
+                        app:civ_border_color="#FF000000"
+                        app:civ_border_width="2dp" />
 
 
                 </LinearLayout>

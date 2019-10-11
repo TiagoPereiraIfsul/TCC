@@ -66,8 +66,7 @@ public class FragmentAddEstilo extends Fragment implements View.OnClickListener{
     private Spinner combobox;
     private EditText nome;
     private ModeloEstilo estilo;
-    private CardView salvar, versalvos;
-    private Button button;
+    private CardView salvar, versalvos, button;
     private FirebaseAuth auth;
     private  Uri mImageUri;
     private StorageTask mUploadTask;
@@ -116,7 +115,7 @@ public class FragmentAddEstilo extends Fragment implements View.OnClickListener{
         nome = (EditText) view.findViewById(R.id.editText7);
         salvar = (CardView) view.findViewById(R.id.cardView2);
         versalvos = (CardView) view.findViewById(R.id.cardView3);
-        button = (Button) view.findViewById(R.id.button);
+        button = (CardView) view.findViewById(R.id.button);
         foto = (ImageView) view.findViewById(R.id.imageView);
 
         mStorageRef = FirebaseStorage.getInstance().getReference("uploads");
@@ -175,20 +174,9 @@ public class FragmentAddEstilo extends Fragment implements View.OnClickListener{
                     return;
                 }
 
-
-                //estilo.setNome(nome.getText().toString());
-                estilo.setNome(nome.getText().toString());
-                estilo.setBarbeiro(FirebaseAuth.getInstance().getCurrentUser().getUid());
-                //estilo.setCabelo(FirebaseAuth.getInstance().getCurrentUser().getUid());
-                //estilo.setBarba(FirebaseAuth.getInstance().getCurrentUser().getUid());
-                //estilo.setSobrancelha(FirebaseAuth.getInstance().getCurrentUser().getUid());
-                estilo.setCategoria((String) combobox.getSelectedItem());
-                estilo.setId(FirebaseDatabase.getInstance().getReference().push().getKey());
+                editarperfil();
 
 
-
-                FirebaseDatabase.getInstance().getReference("Estilos")
-                        .child(estilo.getId()).setValue(estilo);
                 Toast.makeText(getContext(), "Salvo com sucesso!", Toast.LENGTH_SHORT).show();
 
 
@@ -271,33 +259,21 @@ public class FragmentAddEstilo extends Fragment implements View.OnClickListener{
                                 public void onSuccess(Uri uri) {
                                     final String url = uri.toString();
 
+                                    //estilo.setNome(nome.getText().toString());
+                                    estilo.setNome(nome.getText().toString());
+                                    estilo.setBarbeiro(FirebaseAuth.getInstance().getCurrentUser().getUid());
+                                    //estilo.setCabelo(FirebaseAuth.getInstance().getCurrentUser().getUid());
+                                    //estilo.setBarba(FirebaseAuth.getInstance().getCurrentUser().getUid());
+                                    //estilo.setSobrancelha(FirebaseAuth.getInstance().getCurrentUser().getUid());
+                                    estilo.setCategoria((String) combobox.getSelectedItem());
+                                    estilo.setId(FirebaseDatabase.getInstance().getReference().push().getKey());
+    estilo.setFoto(url);
 
 
+                                    FirebaseDatabase.getInstance().getReference("Estilos")
+                                            .child(estilo.getId()).setValue(estilo);
 
-                                    mDatabaseRef.child(auth.getCurrentUser().getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
-                                        @Override
-                                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                            ModeloCadastro m = dataSnapshot.getValue(ModeloCadastro.class);
-                                            // ModeloCadastro mm = dataSnapshot.getValue(ModeloCadastro.class);
 
-                                            switch (IMAGEM_ID) {
-                                                case 1:
-                                                    m.setFoto1(url);
-                                                    break;
-
-                                                default://se der merda
-
-                                            }
-
-                                            mDatabaseRef.child(auth.getCurrentUser().getUid()).setValue(m);
-                                            //]mDatabaseRef.child(auth.getCurrentUser().getUid()).setValue(mm);
-                                        }
-
-                                        @Override
-                                        public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                                        }
-                                    });
 
                                 }
                             });

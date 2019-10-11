@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.example.login.Modelo.ModeloEstilo;
 import com.example.login.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -47,7 +48,14 @@ public class EstiloAdapter extends RecyclerView.Adapter<EstiloAdapter.ModeloEsti
         ModeloEstilo c = estilos.get(position);
         // Atualizada os valores nas views
         holder.tNome.setText(c.getNome());
-        holder.tFoto.toString();
+        if(c.getFoto() != null)
+        {
+            Picasso.with(this.context).load(c.getFoto()).into(holder.img);
+            //Bitmap bitmap = BitmapFactory.decodeByteArray(c.getFoto(), 0, c.getFoto().length());
+            //holder.img.setImageBitmap(bitmap);
+        } else {
+            holder.img.setImageResource(R.mipmap.ic_launcher);
+        }
 
 
         // holder.img.setImageResource(c.foto);       // Click
@@ -71,7 +79,7 @@ public class EstiloAdapter extends RecyclerView.Adapter<EstiloAdapter.ModeloEsti
     // Subclasse de RecyclerView.ViewHolder. Contém todas as views.
     public static class ModeloEstilosViewHolder extends RecyclerView.ViewHolder {
         public TextView tNome;
-        public ImageView tFoto;
+        public ImageView img;
         private View view;
 
         public ModeloEstilosViewHolder(View view) {
@@ -79,7 +87,7 @@ public class EstiloAdapter extends RecyclerView.Adapter<EstiloAdapter.ModeloEsti
             this.view = view;
             // Cria as views para salvar no ViewHolder
             tNome = (TextView) view.findViewById(R.id.tNome);
-            tFoto = (ImageView) view.findViewById(R.id.tFoto);
+            img = (ImageView) view.findViewById(R.id.img);
         }
     }
 }
