@@ -231,9 +231,7 @@ public class Cadastro extends AppCompatActivity {
                                                         finish();
                                                     }else
                                                     {
-                                                        Toast.makeText(Cadastro.this, "Você não" +
-                                                                " informou algum dado ou a quantidade de carecteres" +
-                                                                " é invalida (Letras e números)! "+task.getException(), Toast.LENGTH_SHORT).show();
+                                                        Toast.makeText(Cadastro.this, "Senha deve conter pelo menos 5 letras e 5 números", Toast.LENGTH_SHORT).show();
                                                     }
                                                 }
                                             });

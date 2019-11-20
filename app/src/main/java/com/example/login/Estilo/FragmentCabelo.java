@@ -123,3 +123,25 @@ public class FragmentCabelo extends Fragment {
 
 
 }
+
+
+/*Romance 30 -> 2° Geração modernista (prosa)               Ambiente/espaço -> Degradante
+
+Neo-regionalista ou neo-realista -> Política de denúncia -> Realidade das minorias ->
+                                                            (Exploradores - Burguesia) - (Exploradores - Proletários)
+Personagens -> Representam um grupo -> O norderstino retirante, os moradorts de rua, os trabalhadores de fábrica
+
+                Personagens são
+                representados pelas
+                suas características
+
+                Física, sociais
+
+Contexto histórico:
+
+* Crise de 1929 -> Quebra da bolsa
+* 1930 -> Getulio Vargas
+* 1937 -> Estado novo -> Industrialização
+* Revolução russa 18 de outubro de 17 -> Socialismo Soviético
+*/
+

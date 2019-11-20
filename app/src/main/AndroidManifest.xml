@@ -3,9 +3,8 @@
     package="com.example.login">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE">
-    </uses-permission>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"></uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -26,9 +25,7 @@
             android:name=".Acoes.Barbeiro.InicialBarbeiro"
             android:label="@string/title_activity_inicial_barbeiro"
             android:theme="@style/NoActionBar" />
-        <activity android:name=".Login.Cadastro.MainActivity">
-
-        </activity>
+        <activity android:name=".Login.Cadastro.MainActivity"></activity>
     </application>
 
 </manifest>

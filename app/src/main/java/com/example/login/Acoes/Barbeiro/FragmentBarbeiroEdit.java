@@ -351,7 +351,7 @@ public class FragmentBarbeiroEdit extends Fragment implements View.OnClickListen
                         }
                     });
         } else {
-            Toast.makeText(getContext(), "No file selected", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Salvo com sucesso", Toast.LENGTH_SHORT).show();
         }
 
 

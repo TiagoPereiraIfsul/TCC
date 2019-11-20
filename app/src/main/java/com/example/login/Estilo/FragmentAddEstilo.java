@@ -267,7 +267,7 @@ public class FragmentAddEstilo extends Fragment implements View.OnClickListener{
                                     //estilo.setSobrancelha(FirebaseAuth.getInstance().getCurrentUser().getUid());
                                     estilo.setCategoria((String) combobox.getSelectedItem());
                                     estilo.setId(FirebaseDatabase.getInstance().getReference().push().getKey());
-    estilo.setFoto(url);
+                                     estilo.setFoto(url);
 
 
                                     FirebaseDatabase.getInstance().getReference("Estilos")
