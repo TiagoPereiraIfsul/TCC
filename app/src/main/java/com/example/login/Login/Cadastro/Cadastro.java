@@ -213,6 +213,7 @@ public class Cadastro extends AppCompatActivity {
 
                                                         ModeloCadastro m = new ModeloCadastro();
 
+                                                        m.set_id(user.getKey());
                                                         m.setNome(nome);
                                                         m.setFotoperfil(url);
                                                         //m.setDescricao(descricao);

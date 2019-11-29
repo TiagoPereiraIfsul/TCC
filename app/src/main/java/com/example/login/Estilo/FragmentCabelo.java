@@ -91,11 +91,11 @@ public class FragmentCabelo extends Fragment {
         return new EstiloAdapter.ModeloEstiloOnClickListener() {
             @Override
             public void onClickModeloEstilo(EstiloAdapter.ModeloEstilosViewHolder holder, int idx) {
-//                ModeloEstilo p = modeloEstilos.get(idx);
-//                intent.putExtra("Objeto", p); //putextraserializable
+                ModeloEstilo p = modeloEstilos.get(idx);
+                //intent.putExtra("Objeto", p); //putextraserializable
 
 
-                System.out.println("entrou pora");
+                /*System.out.println("entrou pora");
                 ModeloEstilo p = modeloEstilos.get(idx);
 
                 FragmentTransaction ft = fm.beginTransaction();
@@ -106,7 +106,7 @@ public class FragmentCabelo extends Fragment {
                 fragmentAddEstilo.setArguments(bundle);
 
                 ft.replace(R.id.conteiner, fragmentAddEstilo);
-                ft.commit();
+                ft.commit();*/
 
             }
         };

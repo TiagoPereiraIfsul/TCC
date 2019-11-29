@@ -115,8 +115,8 @@ public class FragmentAddEstilo extends Fragment implements View.OnClickListener{
         nome = (EditText) view.findViewById(R.id.editText7);
         salvar = (CardView) view.findViewById(R.id.cardView2);
         versalvos = (CardView) view.findViewById(R.id.cardView3);
-        button = (CardView) view.findViewById(R.id.button);
-        foto = (ImageView) view.findViewById(R.id.imageView);
+        //button = (CardView) view.findViewById(R.id.button);
+        //foto = (ImageView) view.findViewById(R.id.imageView);
 
         mStorageRef = FirebaseStorage.getInstance().getReference("uploads");
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("users");
@@ -156,13 +156,13 @@ public class FragmentAddEstilo extends Fragment implements View.OnClickListener{
             }
         });
 
-        button.setOnClickListener(new View.OnClickListener() {
+        /*button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 IMAGEM_ID = 1;
                 openFileChooser();
             }
-        });
+        });*/
 
         salvar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -232,34 +232,6 @@ public class FragmentAddEstilo extends Fragment implements View.OnClickListener{
 
     private void editarperfil() {
 
-
-
-        //carega imagem
-        if (mImageUri != null) {
-            StorageReference fileReference = mStorageRef.child(System.currentTimeMillis()
-                    + "." + getFileExtension(mImageUri));
-
-            mUploadTask = fileReference.putFile(mImageUri)
-                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            Handler handler = new Handler();
-                            handler.postDelayed(new Runnable() {
-                                @Override
-                                public void run() {
-                                    //  mProgressBar.setProgress(0);
-                                }
-                            }, 500);
-
-                            //Toast.makeText(Cadastro.this, "Upload successful", Toast.LENGTH_LONG).show();
-                            //Upload upload = new Upload(mEditTextFileName.getText().toString().trim(),
-
-                            taskSnapshot.getStorage().getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                @Override
-                                public void onSuccess(Uri uri) {
-                                    final String url = uri.toString();
-
-                                    //estilo.setNome(nome.getText().toString());
                                     estilo.setNome(nome.getText().toString());
                                     estilo.setBarbeiro(FirebaseAuth.getInstance().getCurrentUser().getUid());
                                     //estilo.setCabelo(FirebaseAuth.getInstance().getCurrentUser().getUid());
@@ -267,35 +239,11 @@ public class FragmentAddEstilo extends Fragment implements View.OnClickListener{
                                     //estilo.setSobrancelha(FirebaseAuth.getInstance().getCurrentUser().getUid());
                                     estilo.setCategoria((String) combobox.getSelectedItem());
                                     estilo.setId(FirebaseDatabase.getInstance().getReference().push().getKey());
-                                     estilo.setFoto(url);
+                                     //estilo.setFoto(url);
 
 
                                     FirebaseDatabase.getInstance().getReference("Estilos")
                                             .child(estilo.getId()).setValue(estilo);
-
-
-
-                                }
-                            });
-
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            //Toast.makeText(FragmentBarbeiroEdit.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    })
-                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
-                            double progress = (100.0 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
-                            //mProgressBar.setProgress((int) progress);
-                        }
-                    });
-        } else {
-            //Toast.makeText(this, "No file selected", Toast.LENGTH_SHORT).show();
-        }
 
 
     }

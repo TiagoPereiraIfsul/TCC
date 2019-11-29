@@ -5,8 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -16,11 +14,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.login.Estilo.EstiloAdapter;
-import com.example.login.Estilo.FragmentAddEstilo;
-import com.example.login.Modelo.ModeloClientes;
+import com.example.login.Modelo.ModeloCliente;
 import com.example.login.Modelo.ModeloEstilo;
 import com.example.login.R;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -36,9 +32,9 @@ import java.util.stream.Collectors;
  */
 public class FragmentManha extends Fragment {
     private RecyclerView recyclerView;
-    private List<ModeloEstilo> modeloEstilos;
-    private EstiloAdapter adapter;
-    ModeloClientes modeloCliente;
+    private List<ModeloCliente> modeloClientes;
+    private ClienteAdapter adapter;
+    ModeloCliente modeloCliente;
     private Button excluir;
 
 
@@ -57,26 +53,27 @@ public class FragmentManha extends Fragment {
 
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
 //        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        modeloCliente = new ModeloClientes();
+        modeloCliente = new ModeloCliente();
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(adapter = new EstiloAdapter(getContext(), modeloEstilos, null));
+        recyclerView.setAdapter(adapter = new ClienteAdapter(getContext(), modeloClientes, null));
 
         FirebaseDatabase.getInstance().getReference("HorariosMarcados").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                List<ModeloEstilo> lista = new ArrayList<>();
+                List<ModeloCliente> lista = new ArrayList<>();
 
                 for(DataSnapshot d : dataSnapshot.getChildren()) {
-                    ModeloEstilo m = d.getValue(ModeloEstilo.class);
+                    ModeloCliente m = d.getValue(ModeloCliente.class);
 //                    if(m.getId().equals(FirebaseAuth.getInstance().getCurrentUser().getUid()))
+                        if(m.getHorario().contains("Manhã"))
                         lista.add(m);
                 }
 
-                //lista = (List<ModeloEstilo>) lista.stream().filter(e->e.getNome().equals("HorarioMarcado")).collect(Collectors.toList());
+                //lista = (List<ModeloCliente>) lista.stream().filter(e->e.getHorario().equals("")).collect(Collectors.toList());
                 System.out.println(lista);
-                modeloEstilos = lista;
+                //modeloCliente = lista;
                 carregarRecyclerView(lista);
 
             }
@@ -91,8 +88,20 @@ public class FragmentManha extends Fragment {
 
 
 
-    public void carregarRecyclerView(List<ModeloEstilo> modeloClientes) {
-        recyclerView.setAdapter(adapter = new EstiloAdapter(getContext(), modeloClientes, null));
+    private ClienteAdapter.ModeloClienteOnClickListener onClickModeloCliente() {
+        final Intent intent = new Intent(getContext(), ModeloEstilo.class);
+        return new ClienteAdapter.ModeloClienteOnClickListener() {
+            @Override
+            public void onClickModeloCliente(ClienteAdapter.ModeloClientesViewHolder holder, int idx) {
+                ModeloCliente p = modeloClientes.get(idx);
+
+            }
+        };
+    }
+
+    public void carregarRecyclerView(List<ModeloCliente> modeloClientes) {
+        recyclerView.setAdapter(adapter = new ClienteAdapter(getContext(), modeloClientes, onClickModeloCliente()));
+
 
     }
 

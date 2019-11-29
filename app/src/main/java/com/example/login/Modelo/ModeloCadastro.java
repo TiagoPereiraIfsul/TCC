@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class ModeloCadastro implements Serializable {
 
-    private Long _id;
+    private String _id;
     private String nome;
     private String sobrenome;
     private String email;
@@ -15,11 +15,11 @@ public class ModeloCadastro implements Serializable {
     private String foto3;
     private String fotoperfil;
 
-    public Long get_id() {
+    public String get_id() {
         return _id;
     }
 
-    public void set_id(Long _id) {
+    public void set_id(String _id) {
         this._id = _id;
     }
 

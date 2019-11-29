@@ -100,12 +100,12 @@ public class FragmentBarbeiroEdit extends Fragment implements View.OnClickListen
         //aliasSalvar1 = (CardView) view.findViewById(R.id.cardView1);
 
         aliasnome = (EditText) view.findViewById(R.id.aliasnome);
-        foto1 = (Button) view.findViewById(R.id.button);
+        //foto1 = (Button) view.findViewById(R.id.button);
         //foto2 = (Button) view.findViewById(R.id.button2);
         //foto3 = (Button) view.findViewById(R.id.button3);
-        imagem1 = (CircleImageView) view.findViewById(R.id.imagem1);
-        imagem2 = (CircleImageView) view.findViewById(R.id.imagem2);
-        imagem3 = (CircleImageView) view.findViewById(R.id.imagem3);
+        imagem1 = (ImageView) view.findViewById(R.id.imagem1);
+        imagem2 = (ImageView) view.findViewById(R.id.imagem2);
+        imagem3 = (ImageView) view.findViewById(R.id.imagem3);
         mButtonChooseImage = (ImageView) view.findViewById(R.id.mButtonChooseImage);
 
         mStorageRef = FirebaseStorage.getInstance().getReference("uploads");

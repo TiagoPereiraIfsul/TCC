@@ -29,10 +29,7 @@
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-
-
-    tools:context=".Estilo.FragmentEstilo">
+    android:orientation="vertical">
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="match_parent"
@@ -76,33 +73,6 @@
         android:textColorLink="@android:color/background_light"
         android:textCursorDrawable="@android:color/background_light" />
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/button"
-        android:layout_width="130dp"
-        android:layout_height="45dp"
-        android:layout_marginLeft="220dp"
-        android:layout_above="@+id/textView2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="130dp"
-        android:layout_marginBottom="3dp"
-        app:cardBackgroundColor="@android:color/darker_gray"
-        app:cardCornerRadius="25dp"
-        app:cardElevation="10dp">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/textView9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="Foto"
-                android:textColor="#fff"
-                android:textSize="18sp" />
-        </RelativeLayout>
-    </android.support.v7.widget.CardView>
 
     <!--<Button
         android:id="@+id/button"
@@ -114,17 +84,6 @@
         android:layout_centerHorizontal="true"
         android:text="Add foto de perfil" />-->
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/imageView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginLeft="260dp"
-        app:srcCompat="@drawable/ic_action_cam"
-        app:civ_border_width="2dp"
-        android:layout_marginTop="180dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        app:civ_border_color="#FF000000"/>
 
 
     <android.support.v7.widget.CardView

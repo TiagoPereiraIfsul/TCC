@@ -20,7 +20,7 @@ import java.util.List;
 public class EstiloAdapter extends RecyclerView.Adapter<EstiloAdapter.ModeloEstilosViewHolder>{
     private final List<ModeloEstilo> estilos;
     private final Context context;
-    private final ModeloEstiloOnClickListener onClickListener;
+    private final EstiloAdapter.ModeloEstiloOnClickListener onClickListener;
 
     public interface ModeloEstiloOnClickListener {
         void onClickModeloEstilo(ModeloEstilosViewHolder holder, int idx);
@@ -50,11 +50,11 @@ public class EstiloAdapter extends RecyclerView.Adapter<EstiloAdapter.ModeloEsti
         holder.tNome.setText(c.getNome());
         if(c.getFoto() != null)
         {
-            Picasso.with(this.context).load(c.getFoto()).into(holder.img);
+            //Picasso.with(this.context).load(c.getFoto()).into(holder.img);
             //Bitmap bitmap = BitmapFactory.decodeByteArray(c.getFoto(), 0, c.getFoto().length());
             //holder.img.setImageBitmap(bitmap);
         } else {
-            holder.img.setImageResource(R.mipmap.ic_launcher);
+           // holder.img.setImageResource(R.mipmap.ic_launcher);
         }
 
 
@@ -79,7 +79,7 @@ public class EstiloAdapter extends RecyclerView.Adapter<EstiloAdapter.ModeloEsti
     // Subclasse de RecyclerView.ViewHolder. Contém todas as views.
     public static class ModeloEstilosViewHolder extends RecyclerView.ViewHolder {
         public TextView tNome;
-        public ImageView img;
+        //public ImageView img;
         private View view;
 
         public ModeloEstilosViewHolder(View view) {
@@ -87,7 +87,7 @@ public class EstiloAdapter extends RecyclerView.Adapter<EstiloAdapter.ModeloEsti
             this.view = view;
             // Cria as views para salvar no ViewHolder
             tNome = (TextView) view.findViewById(R.id.tNome);
-            img = (ImageView) view.findViewById(R.id.img);
+            //img = (ImageView) view.findViewById(R.id.img);
         }
     }
 }

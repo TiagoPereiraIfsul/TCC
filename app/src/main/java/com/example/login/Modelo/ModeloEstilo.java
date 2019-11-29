@@ -6,6 +6,9 @@ public class ModeloEstilo implements Serializable {
 
     private String id;
     private String nome;
+    private String barba;
+    private String sobrancelha;
+    private String cabelo;
     private String categoria;
     private String barbeiro;
     private String foto;
@@ -24,6 +27,30 @@ public class ModeloEstilo implements Serializable {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getBarba() {
+        return barba;
+    }
+
+    public void setBarba(String barba) {
+        this.barba = barba;
+    }
+
+    public String getSobrancelha() {
+        return sobrancelha;
+    }
+
+    public void setSobrancelha(String sobrancelha) {
+        this.sobrancelha = sobrancelha;
+    }
+
+    public String getCabelo() {
+        return cabelo;
+    }
+
+    public void setCabelo(String cabelo) {
+        this.cabelo = cabelo;
     }
 
     public String getCategoria() {

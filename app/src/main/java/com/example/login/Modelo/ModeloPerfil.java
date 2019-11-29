@@ -4,16 +4,16 @@ import java.io.Serializable;
 
 public class ModeloPerfil implements Serializable {
 
-    private Long _id;
+    private String _id;
     private String foto1;
     private String foto2;
     private String foto3;
 
-    public Long get_id() {
+    public String get_id() {
         return _id;
     }
 
-    public void set_id(Long _id) {
+    public void set_id(String _id) {
         this._id = _id;
     }
 

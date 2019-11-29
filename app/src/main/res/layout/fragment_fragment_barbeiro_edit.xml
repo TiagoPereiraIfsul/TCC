@@ -9,7 +9,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/btauszik">
+        >
+        <!--android:background="@drawable/btauszik"-->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -77,13 +78,12 @@
                         android:layout_height="100dp"
                         app:srcCompat="@drawable/ic_menu_camera" />-->
 
-                    <de.hdodenhof.circleimageview.CircleImageView
+                    <ImageView
                         android:id="@+id/imagem1"
                         android:layout_width="100dp"
                         android:layout_height="150dp"
                         android:layout_gravity="center_horizontal"
-                        app:civ_border_color="#FF000000"
-                        app:civ_border_width="2dp" />
+                        app:srcCompat="@drawable/ic_menu_camera"/>
 
 
                 </LinearLayout>
@@ -102,13 +102,13 @@
                         android:layout_height="100dp"
                         app:srcCompat="@drawable/ic_menu_camera" />-->
 
-                    <de.hdodenhof.circleimageview.CircleImageView
+                    <ImageView
                         android:id="@+id/imagem2"
                         android:layout_width="100dp"
                         android:layout_height="150dp"
                         android:layout_gravity="center_horizontal"
-                        app:civ_border_color="#FF000000"
-                        app:civ_border_width="2dp" />
+                        app:srcCompat="@drawable/ic_menu_camera"
+                         />
 
 
                 </LinearLayout>
@@ -127,13 +127,13 @@
                         android:layout_height="100dp"
                         app:srcCompat="@drawable/ic_menu_camera" />-->
 
-                    <de.hdodenhof.circleimageview.CircleImageView
+                    <ImageView
                         android:id="@+id/imagem3"
                         android:layout_width="100dp"
                         android:layout_height="150dp"
                         android:layout_gravity="center_horizontal"
-                        app:civ_border_color="#FF000000"
-                        app:civ_border_width="2dp" />
+                        app:srcCompat="@drawable/ic_menu_camera"
+                         />
 
 
                 </LinearLayout>
