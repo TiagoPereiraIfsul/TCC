@@ -55,19 +55,19 @@ public class FragmentBarba extends Fragment {
         FirebaseDatabase.getInstance().getReference("Estilos").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                List<ModeloEstilo> lista = new ArrayList<>();
+                List<ModeloEstilo> lista2 = new ArrayList<>();
 
                 for(DataSnapshot d : dataSnapshot.getChildren()) {
                     ModeloEstilo m = d.getValue(ModeloEstilo.class);
                     if(m.getBarbeiro().equals(FirebaseAuth.getInstance().getCurrentUser().getUid()))
-                        lista.add(m);
+                        lista2.add(m);
 
                 }
 
-                lista = (List<ModeloEstilo>) lista.stream().filter(e->e.getCategoria().equals("Barba - R$ 10,00")).collect(Collectors.toList());
-                System.out.println(lista);
+                lista2 = (List<ModeloEstilo>) lista2.stream().filter(e->e.getCategoria().equals("Barba - R$ 10,00")).collect(Collectors.toList());
+                System.out.println(lista2);
 
-                carregarRecyclerView(lista);
+                carregarRecyclerView(lista2);
 
             }
 

@@ -65,6 +65,7 @@
         android:layout_width="240dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="220dp"
+        android:layout_marginLeft="90dp"
         android:ems="10"
         android:hint="Digite o nome do estilo:"
         android:inputType="textPersonName"

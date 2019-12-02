@@ -4,19 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Login.Cadastro.LoginouCadastro">
-
-    <pl.droidsonroids.gif.GifImageView
-        android:layout_width="530dp"
-        android:layout_height="740dp"
-        android:src="@drawable/gifbarbeariaa"
-        />
+    tools:context=".Login.Cadastro.LoginouCadastro"
+    android:background="@drawable/barbershop"
+    >
 
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:srcCompat="@drawable/barbershop">
 
         <android.support.v7.widget.CardView
             android:id="@+id/cardView"
@@ -26,13 +23,14 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="440dp"
             android:layout_marginBottom="3dp"
-            app:cardBackgroundColor="#A9A9A9"
+            app:cardBackgroundColor="#79ACAC"
             app:cardCornerRadius="25dp"
             app:cardElevation="10dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+              >
 
                 <TextView
                     android:id="@+id/textView"
@@ -56,13 +54,14 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="500dp"
             android:layout_marginBottom="3dp"
-            app:cardBackgroundColor="#A9A9A9"
+            app:cardBackgroundColor="#79ACAC"
             app:cardCornerRadius="25dp"
             app:cardElevation="10dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                >
 
                 <TextView
                     android:id="@+id/textView3"

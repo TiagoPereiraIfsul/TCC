@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         aliasTwitter = findViewById(R.id.imageView4);
         aliasInsta = findViewById(R.id.imageView3);
         aliasFace = findViewById(R.id.imageView2);
-        aliasEmail = findViewById(R.id.editText);
+        aliasEmail = findViewById(R.id.editText3);
         aliasSenha = findViewById(R.id.editText2);
         aliasCadastro = findViewById(R.id.textView2);
 

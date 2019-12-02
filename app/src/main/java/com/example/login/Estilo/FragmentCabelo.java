@@ -56,24 +56,24 @@ public class FragmentCabelo extends Fragment {
 //        recyclerView.setLayoutManager(new LinearLayoutManager(this));
         modeloEstilo = new ModeloEstilo();
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(adapter = new EstiloAdapter(getContext(), modeloEstilos, onClickModeloEstilo()));
+        //recyclerView.setItemAnimator(new DefaultItemAnimator());
+        //recyclerView.setAdapter(adapter = new EstiloAdapter(getContext(), modeloEstilos, onClickModeloEstilo()));
 
         FirebaseDatabase.getInstance().getReference("Estilos").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                List<ModeloEstilo> lista = new ArrayList<>();
+                List<ModeloEstilo> lista1 = new ArrayList<>();
 
                 for(DataSnapshot d : dataSnapshot.getChildren()) {
                     ModeloEstilo m = d.getValue(ModeloEstilo.class);
                     if(m.getBarbeiro().equals(FirebaseAuth.getInstance().getCurrentUser().getUid()))
-                        lista.add(m);
+                        lista1.add(m);
                 }
 
-                lista = (List<ModeloEstilo>) lista.stream().filter(e->e.getCategoria().equals("Cabelo - R$ 25,00")).collect(Collectors.toList());
-                System.out.println(lista);
-                modeloEstilos = lista;
-                carregarRecyclerView(lista);
+                lista1 = (List<ModeloEstilo>) lista1.stream().filter(e -> e.getCategoria().equals("Cabelo - R$ 25,00")).collect(Collectors.toList());
+                System.out.println(lista1);
+                modeloEstilos = lista1;
+                carregarRecyclerView(lista1);
 
             }
 
