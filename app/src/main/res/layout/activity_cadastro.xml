@@ -19,7 +19,7 @@
             android:id="@+id/button_choose_image"
             android:layout_width="200dp"
             android:layout_height="50dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="200dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:background="#D1D1D1"
@@ -27,11 +27,11 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imageView"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             app:srcCompat="@drawable/ic_action_cam"
             app:civ_border_width="2dp"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="270dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             app:civ_border_color="#FF000000"/>

@@ -29,6 +29,7 @@
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent"
+    android:background="@drawable/apptygabg"
     android:orientation="vertical">
     <Spinner
         android:id="@+id/spinner"
@@ -64,12 +65,12 @@
         android:id="@+id/editText7"
         android:layout_width="240dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="220dp"
         android:layout_marginLeft="90dp"
+        android:layout_marginTop="220dp"
         android:ems="10"
         android:hint="Digite o nome do estilo:"
         android:inputType="textPersonName"
-        android:textColor="#fff"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
         android:textColorHighlight="@android:color/background_light"
         android:textColorLink="@android:color/background_light"
         android:textCursorDrawable="@android:color/background_light" />
@@ -91,12 +92,12 @@
         android:id="@+id/cardView2"
         android:layout_width="168dp"
         android:layout_height="50dp"
-        android:layout_marginLeft="15dp"
+        android:layout_marginLeft="25dp"
         android:layout_above="@+id/textView2"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="330dp"
         android:layout_marginBottom="3dp"
-        app:cardBackgroundColor="@android:color/darker_gray"
+        app:cardBackgroundColor="#E2E2E2"
         app:cardCornerRadius="25dp"
         app:cardElevation="10dp">
 
@@ -119,12 +120,12 @@
         android:id="@+id/cardView3"
         android:layout_width="150dp"
         android:layout_height="50dp"
-        android:layout_marginLeft="200dp"
+        android:layout_marginLeft="220dp"
         android:layout_above="@+id/textView2"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="330dp"
         android:layout_marginBottom="3dp"
-        app:cardBackgroundColor="@android:color/darker_gray"
+        app:cardBackgroundColor="#E2E2E2"
         app:cardCornerRadius="25dp"
         app:cardElevation="10dp">
 

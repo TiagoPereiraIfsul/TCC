@@ -62,18 +62,18 @@ public class FragmentCabelo extends Fragment {
         FirebaseDatabase.getInstance().getReference("Estilos").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                List<ModeloEstilo> lista1 = new ArrayList<>();
+                List<ModeloEstilo> lista = new ArrayList<>();
 
                 for(DataSnapshot d : dataSnapshot.getChildren()) {
                     ModeloEstilo m = d.getValue(ModeloEstilo.class);
                     if(m.getBarbeiro().equals(FirebaseAuth.getInstance().getCurrentUser().getUid()))
-                        lista1.add(m);
+                        lista.add(m);
                 }
 
-                lista1 = (List<ModeloEstilo>) lista1.stream().filter(e -> e.getCategoria().equals("Cabelo - R$ 25,00")).collect(Collectors.toList());
-                System.out.println(lista1);
-                modeloEstilos = lista1;
-                carregarRecyclerView(lista1);
+                lista = (List<ModeloEstilo>) lista.stream().filter(e -> e.getCategoria().equals("Cabelo - R$ 25,00")).collect(Collectors.toList());
+                System.out.println(lista);
+                modeloEstilos = lista;
+                carregarRecyclerView(lista);
 
             }
 

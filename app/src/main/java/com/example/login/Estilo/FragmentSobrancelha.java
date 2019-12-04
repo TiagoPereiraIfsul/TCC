@@ -66,7 +66,7 @@ public class FragmentSobrancelha extends Fragment {
 
                 lista = (List<ModeloEstilo>) lista.stream().filter(e->e.getCategoria().equals("Sobrancelha - R$ 5,00")).collect(Collectors.toList());
                 System.out.println(lista);
-
+                modeloEstilos = lista;
                 carregarRecyclerView(lista);
 
             }

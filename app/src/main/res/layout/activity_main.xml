@@ -39,7 +39,7 @@
             android:layout_alignStart="@+id/editText"
             android:layout_alignLeft="@+id/editText"
             android:layout_alignBottom="@+id/cardView"
-            android:layout_marginLeft="55dp"
+            android:layout_marginLeft="80dp"
             android:layout_marginBottom="130dp"
             android:background="#D1D1D1"
             android:drawableLeft="@drawable/ic_action_pass"
@@ -93,21 +93,29 @@
             android:layout_alignParentBottom="true"
             android:layout_marginLeft="120dp"
             android:id="@+id/linearLayout">
-            <ImageView android:id="@+id/imageView4"
+
+            <ImageView
+                android:id="@+id/imageView4"
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/twitter"
-                />
-            <ImageView android:id="@+id/imageView3"
+                android:visibility="invisible"
+                app:srcCompat="@drawable/twitter" />
+
+            <ImageView
+                android:id="@+id/imageView3"
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
-                app:srcCompat="@drawable/instagram"/>
-            <ImageView android:id="@+id/imageView2"
+                android:visibility="invisible"
+                app:srcCompat="@drawable/instagram" />
+
+            <ImageView
+                android:id="@+id/imageView2"
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
-                app:srcCompat="@drawable/facebook"/>
+                android:visibility="invisible"
+                app:srcCompat="@drawable/facebook" />
         </LinearLayout>
 
         <LinearLayout
