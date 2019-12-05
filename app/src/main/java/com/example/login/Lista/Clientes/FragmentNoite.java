@@ -56,7 +56,7 @@ public class FragmentNoite extends Fragment {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter = new ClienteAdapter(getContext(), modeloClientes, null));
 
-        FirebaseDatabase.getInstance().getReference("HorariosMarcados").addListenerForSingleValueEvent(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference("HorariosMarcados").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 List<ModeloCliente> lista = new ArrayList<>();

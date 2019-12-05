@@ -6,13 +6,14 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".Acoes.Barbeiro.InicialBarbeiro"
-    tools:showIn="@layout/app_bar_inicial_barbeiro">
+    tools:showIn="@layout/app_bar_inicial_barbeiro"
+    >
 
         <FrameLayout
-            android:background="@color/common_google_signin_btn_text_dark_focused"
             android:id="@+id/conteiner"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@drawable/apptygabg">
 
         </FrameLayout>
 

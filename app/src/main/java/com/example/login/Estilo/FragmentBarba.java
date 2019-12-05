@@ -52,7 +52,7 @@ public class FragmentBarba extends Fragment {
 //        recyclerView.setItemAnimator(new DefaultItemAnimator());
 //        recyclerView.setAdapter(adapter = new EstiloAdapter(getContext(), modeloEstilos, onClickModeloEstilo()));
 
-        FirebaseDatabase.getInstance().getReference("Estilos").addListenerForSingleValueEvent(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference("Estilos").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 List<ModeloEstilo> lista = new ArrayList<>();
@@ -65,8 +65,9 @@ public class FragmentBarba extends Fragment {
                 }
 
                 lista = (List<ModeloEstilo>) lista.stream().filter(e->e.getCategoria().equals("Barba - R$ 10,00")).collect(Collectors.toList());
+                System.out.println("barbas");
                 System.out.println(lista);
-                modeloEstilos = lista;
+                //modeloEstilos = lista;
                 carregarRecyclerView(lista);
 
             }
@@ -92,6 +93,7 @@ public class FragmentBarba extends Fragment {
 
     public void carregarRecyclerView(List<ModeloEstilo> modeloEstilos) {
         recyclerView.setAdapter(adapter = new EstiloAdapter(getContext(), modeloEstilos, onClickModeloEstilo()));
+        adapter.notifyDataSetChanged();
 
     }
 

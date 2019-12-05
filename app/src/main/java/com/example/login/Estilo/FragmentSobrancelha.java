@@ -52,7 +52,7 @@ public class FragmentSobrancelha extends Fragment {
 //        recyclerView.setItemAnimator(new DefaultItemAnimator());
 //        recyclerView.setAdapter(adapter = new EstiloAdapter(getContext(), modeloEstilos, onClickModeloEstilo()));
 
-        FirebaseDatabase.getInstance().getReference("Estilos").addListenerForSingleValueEvent(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference("Estilos").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 List<ModeloEstilo> lista = new ArrayList<>();

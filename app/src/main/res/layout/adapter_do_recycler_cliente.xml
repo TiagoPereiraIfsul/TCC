@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:orientation="horizontal"-->
+<!--    android:background="@drawable/apptygabg">-->
+
+
+
+    <android.support.v7.widget.CardView
+        xmlns:tools="http://schemas.android.com/tools" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/carview1"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_margin="16dp"
+        app:cardBackgroundColor="@color/cardview_light_background"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="8dp">
+
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="120dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="140dp"
+            android:layout_marginTop="25dp"
+            app:srcCompat="@android:drawable/ic_menu_camera" />
+
+        <ImageView
+            android:id="@+id/deletarrr"
+            android:layout_width="50dp"
+            android:layout_height="100dp"
+            android:layout_weight="7"
+            android:layout_marginLeft="270dp"
+            android:layout_marginTop="20dp"
+            app:srcCompat="@drawable/ic_delete_black_" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:layout_weight="3"
+            android:padding="4dp">
+
+
+            <!-- Barra de progresso enquanto carrega a foto -->
+            <ProgressBar
+                android:id="@+id/progress"
+                style="@android:style/Widget.ProgressBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|center_vertical"
+                android:layout_marginRight="6dp"
+                android:gravity="center|center_vertical"
+                android:visibility="invisible" />
+
+
+            <LinearLayout
+                android:layout_width="379dp"
+                android:layout_height="200dp"
+                android:layout_marginLeft="-20dp"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/tNome"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="7"
+                    android:text="Nome"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:id="@+id/tCabelo"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="7"
+                    android:text="Cabelo"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:id="@+id/tBarba"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="7"
+                    android:text="Barba"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:id="@+id/tSobrancelha"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="7"
+                    android:text="Sobrancelha"
+                    android:textColor="#000000" />
+
+
+
+                <TextView
+                    android:id="@+id/tHorario"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="7"
+                    android:text="Horario"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:id="@+id/tData"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="7"
+                    android:text="Data"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:id="@+id/tValor"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="7"
+                    android:text="Valor"
+                    android:textColor="#000000" />
+
+
+
+
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+    <!-- Nome carro -->
+
+<!--</LinearLayout>-->

@@ -16,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.example.login.Modelo.ModeloEstilo;
 import com.example.login.R;
@@ -41,6 +42,7 @@ public class FragmentCabelo extends Fragment {
     private Button excluir;
 
 
+
     public FragmentCabelo() {
         // Required empty public constructor
     }
@@ -59,7 +61,7 @@ public class FragmentCabelo extends Fragment {
         //recyclerView.setItemAnimator(new DefaultItemAnimator());
         //recyclerView.setAdapter(adapter = new EstiloAdapter(getContext(), modeloEstilos, onClickModeloEstilo()));
 
-        FirebaseDatabase.getInstance().getReference("Estilos").addListenerForSingleValueEvent(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference("Estilos").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 List<ModeloEstilo> lista = new ArrayList<>();
@@ -72,7 +74,7 @@ public class FragmentCabelo extends Fragment {
 
                 lista = (List<ModeloEstilo>) lista.stream().filter(e -> e.getCategoria().equals("Cabelo - R$ 25,00")).collect(Collectors.toList());
                 System.out.println(lista);
-                modeloEstilos = lista;
+                //modeloEstilos = lista;
                 carregarRecyclerView(lista);
 
             }
@@ -82,6 +84,8 @@ public class FragmentCabelo extends Fragment {
 
             }
         });
+
+
         return view;
     }
 
@@ -112,6 +116,7 @@ public class FragmentCabelo extends Fragment {
         };
 
     }
+
 
 
 
